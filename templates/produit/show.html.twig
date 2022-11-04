@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <h1>Produit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ produit.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ produit.description }}</td>
+            </tr>
+            <tr>
+                <th>PrixVente</th>
+                <td>{{ produit.prixVente }}</td>
+            </tr>
+            <tr>
+                <th>QteStock</th>
+                <td>{{ produit.qteStock }}</td>
+            </tr>
+            <tr>
+                <th>QteAlerte</th>
+                <td>{{ produit.qteAlerte }}</td>
+            </tr>
+            <tr>
+                <th>Couleur</th>
+                <td>{{ produit.couleur }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ produit.code }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ produit.createdAt ? produit.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ produit.updatedAt ? produit.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>IsArrivage</th>
+                <td>{{ produit.isArrivage ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsBestSelling</th>
+                <td>{{ produit.isBestSelling ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_produit_index') }}">back to list</a>
+
+    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+
+    {{ include('produit/_delete_form.html.twig') }}
+{% endblock %}

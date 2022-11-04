@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NewsLetter{% endblock %}
+
+{% block body %}
+    <h1>NewsLetter</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ news_letter.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ news_letter.email }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ news_letter.createdAt ? news_letter.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ news_letter.updatedAt ? news_letter.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>IpAdress</th>
+                <td>{{ news_letter.ipAdress }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_news_letter_index') }}">back to list</a>
+
+    <a href="{{ path('app_news_letter_edit', {'id': news_letter.id}) }}">edit</a>
+
+    {{ include('news_letter/_delete_form.html.twig') }}
+{% endblock %}
